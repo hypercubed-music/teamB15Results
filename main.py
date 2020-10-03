@@ -1,7 +1,6 @@
-import tkinter as tk
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
-import matplotlib as mpl
 import matplotlib.pyplot as plot
 import numpy as np
 import tensorflow as tf
@@ -42,15 +41,15 @@ print(f"Test size is {X_test.shape[0]}")
 train_labels = Y_train.to_numpy()
 test_labels = Y_test.to_numpy()
 train_images = X_train.to_numpy()
-train_images_shaped = np.zeros((len(train_images), 28, 28))
+train_images_shaped = np.zeros((len(train_images), 28, 28, 1))
 test_images = X_test.to_numpy()
-test_images_shaped = np.zeros((len(test_images), 28, 28))
+test_images_shaped = np.zeros((len(test_images), 28, 28, 1))
 for i in range(len(train_images)):
-    train_images_shaped[i] = np.asarray(train_images[i]).reshape(28, 28)
+    train_images_shaped[i] = np.asarray(train_images[i]).reshape(28, 28, 1)
 for i in range(len(test_images)):
-    test_images_shaped[i] = np.asarray(test_images[i]).reshape(28, 28)
-train_images_shaped = np.asarray(np.expand_dims(train_images_shaped, axis=3))
-test_images_shaped = np.asarray(np.expand_dims(train_images_shaped, axis=3))
+    test_images_shaped[i] = np.asarray(test_images[i]).reshape(28, 28, 1)
+#train_images_shaped = np.asarray(np.expand_dims(train_images_shaped, axis=3))
+#test_images_shaped = np.asarray(np.expand_dims(train_images_shaped, axis=3))
 
 
 
